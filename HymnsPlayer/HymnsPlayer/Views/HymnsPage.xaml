@@ -29,6 +29,7 @@
             
             <Button Text="Navigate"
                     Clicked="Button_OnClicked"/>
+
         </StackLayout>
 
     </Grid>
