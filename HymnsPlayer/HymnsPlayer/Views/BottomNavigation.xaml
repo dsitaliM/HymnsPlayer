@@ -8,5 +8,7 @@
                         xmlns:views="clr-namespace:HymnsPlayer.Views"
                         NavigationPage.HasNavigationBar="False">
     <views:HymnsPage Icon="ic_action_queue_music.png"/>
+    <views:HymnDetailPage Icon="ic_action_subject.png"/>
+    <views:HymnPlayPage Icon="ic_action_play_circle_outline.png"/>
     <views:AboutPage Icon="ic_action_error_outline.png"/>
 </forms:BottomTabbedPage>

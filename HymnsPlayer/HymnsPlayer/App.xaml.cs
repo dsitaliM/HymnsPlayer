@@ -28,6 +28,7 @@ namespace HymnsPlayer
             containerRegistry.RegisterForNavigation<HymnsPage>();
             containerRegistry.RegisterForNavigation<AboutPage>();
             containerRegistry.RegisterForNavigation<HymnDetailPage>();
+            containerRegistry.RegisterForNavigation<HymnPlayPage>();
         }
 	}
 }

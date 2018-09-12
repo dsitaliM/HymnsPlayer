@@ -26,9 +26,6 @@
             <SearchBar x:Name="SearchBar"
                        Margin="13, 13"
                        Opacity="0.5"/>
-            
-            <Button Text="Navigate"
-                    Clicked="Button_OnClicked"/>
 
         </StackLayout>
 
