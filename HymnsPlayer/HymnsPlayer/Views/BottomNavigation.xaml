@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<forms:BottomTabbedPage xmlns:forms="clr-namespace:Naxam.Controls.Forms;assembly=Naxam.BottomTabbedPage.Forms"
+                        xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                        prism:ViewModelLocator.AutowireViewModel="True"
+                        x:Class="HymnsPlayer.Views.BottomNavigation"
+                        xmlns:views="clr-namespace:HymnsPlayer.Views"
+                        NavigationPage.HasNavigationBar="False">
+    <views:HymnsPage Icon="ic_action_queue_music.png"/>
+    <views:AboutPage Icon="ic_action_error_outline.png"/>
+</forms:BottomTabbedPage>
