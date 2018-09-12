@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:viewModels="clr-namespace:HymnsPlayer.ViewModels;assembly=HymnsPlayer"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="HymnsPlayer.Views.HymnsPage"
              Title="Browse Hymns">
-    
     <Grid HorizontalOptions="Fill"
           VerticalOptions="Fill">
         <Image HorizontalOptions="Fill"
@@ -25,9 +25,34 @@
                    Margin="8, 10, 8, 0"/>
             <SearchBar x:Name="SearchBar"
                        Margin="13, 13"
-                       Opacity="0.5"/>
-
+                       Opacity="0.5"
+                       Text="{Binding SearchQuery}"
+                       SearchCommand="{Binding SearchCommand}"
+                       TextChanged="OnTextChanged"/>
+            <ListView x:Name="HymnsListView"
+                      HasUnevenRows="True"
+                      Margin="8"
+                      ItemsSource="{Binding Suggestions}"
+                      SeparatorColor="Wheat">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         Margin="3"
+                                         Padding="3">
+                                <Label Text="{Binding HymnNumber}"
+                                       TextColor="Wheat"
+                                       FontSize="35"
+                                       FontFamily="Tangerine-Regular.ttf#"/>
+                                <Label Text="{Binding Title}"
+                                       TextColor="Wheat"
+                                       FontSize="35"
+                                       FontFamily="Tangerine-Regular.ttf#"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
-
     </Grid>
 </ContentPage>

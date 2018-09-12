@@ -1,4 +1,5 @@
 ﻿using System;
+using HymnsPlayer.ViewModels;
 using Xamarin.Forms;
 
 namespace HymnsPlayer.Views
@@ -11,9 +12,10 @@ namespace HymnsPlayer.Views
             //SearchBar.Effects.Add(Effect.Resolve("CustomEffects.SearchBarEffect"));
         }
 
-        private void Button_OnClicked(object sender, EventArgs e)
+        private void OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            Navigation.PushAsync(new HymnDetailPage());
+            var vm = BindingContext as HymnsPageViewModel;
+            vm?.SearchCommand.Execute();
         }
     }
 }
