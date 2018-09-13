@@ -68,6 +68,8 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\AndroidHelper.cs" />
+    <Compile Include="CustomRenderers\BottomNavRenderer.cs" />
     <Compile Include="CustomRenderers\CustomSearchBar.cs" />
     <Compile Include="Effects\CustomSlider.cs" />
     <Compile Include="Effects\SearchBarEffect.cs" />

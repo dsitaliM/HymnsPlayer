@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Prism;
+using Xamarin.Forms;
 
 namespace HymnsPlayer.Views
 {
@@ -7,20 +9,7 @@ namespace HymnsPlayer.Views
         public HymnDetailPage()
         {
             InitializeComponent();
-            //var page = new BottomNavigation();
-            //page.CurrentPage = this;
         }
-        protected override void OnAppearing()
-        {
-
-        }
-        protected override void OnDisappearing()
-        {
-            //Navigation.RemovePage(this);
-            //Navigation.PopAsync(true);
-        }
-
-       
 
     }
 }

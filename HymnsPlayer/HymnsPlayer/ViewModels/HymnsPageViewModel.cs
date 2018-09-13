@@ -13,7 +13,7 @@ using Prism.Navigation;
 
 namespace HymnsPlayer.ViewModels
 {
-	public class HymnsPageViewModel : BindableBase, INavigationAware
+	public class HymnsPageViewModel : BindableBase, INavigationAware, INavigatingAware, IDestructible
 	{
 	    private readonly INavigationService _navigationService;
 
@@ -67,8 +67,9 @@ namespace HymnsPlayer.ViewModels
 	        {
 	            {"HymnNumber", hymnDto}
 	        };
-	        await _navigationService.NavigateAsync("HymnDetailPage", hymn);
-	    }
+	        //await _navigationService.NavigateAsync("HymnDetailPage", hymn);
+	        await _navigationService.NavigateAsync("HymnDetailPage", hymn, useModalNavigation:false);
+        }
 
         public HymnsPageViewModel(INavigationService navigationService)
         {
@@ -94,6 +95,11 @@ namespace HymnsPlayer.ViewModels
 	    }
 
 	    public void OnNavigatingTo(INavigationParameters parameters)
+	    {
+
+	    }
+
+	    public void Destroy()
 	    {
 
 	    }

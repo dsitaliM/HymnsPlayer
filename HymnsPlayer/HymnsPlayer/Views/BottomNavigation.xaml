@@ -6,49 +6,65 @@
                         prism:ViewModelLocator.AutowireViewModel="True"
                         x:Class="HymnsPlayer.Views.BottomNavigation"
                         xmlns:views="clr-namespace:HymnsPlayer.Views"
+                        xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
                         NavigationPage.HasNavigationBar="False">
-    <NavigationPage Title="Browse Hymns">
-        <NavigationPage.Icon>
-            <OnPlatform x:TypeArguments="FileImageSource">
-                <On Platform="Android" Value="ic_action_queue_music.png"/>
-            </OnPlatform>
-        </NavigationPage.Icon>
-        <x:Arguments>
-            <views:HymnsPage/>
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="Hymn Info">
-        <NavigationPage.Icon>
-            <OnPlatform x:TypeArguments="FileImageSource">
-                <On Platform="Android" Value="ic_action_subject.png"/>
-            </OnPlatform>
-        </NavigationPage.Icon>
-        <x:Arguments>
-            <views:HymnDetailPage/>
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="Play Hymns">
-        <NavigationPage.Icon>
-            <OnPlatform x:TypeArguments="FileImageSource">
-                <On Platform="Android" Value="ic_action_play_circle_outline.png"/>
-            </OnPlatform>
-        </NavigationPage.Icon>
-        <x:Arguments>
-            <views:HymnPlayPage/>
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="About">
-        <NavigationPage.Icon>
-            <OnPlatform x:TypeArguments="FileImageSource">
-                <On Platform="Android" Value="ic_action_error_outline.png"/>
-            </OnPlatform>
-        </NavigationPage.Icon>
-        <x:Arguments>
-            <views:AboutPage/>
-        </x:Arguments>
-    </NavigationPage>
+
+    <forms:BottomTabbedPage.Children>
+<!--        <views:HymnsPage/>-->
+<!--        <views:HymnDetailPage/>-->
+<!--        <views:HymnPlayPage/>-->
+<!--        <views:AboutPage/>-->
+        <NavigationPage Title="Browse Hymns">
+            <NavigationPage.Behaviors>
+                <behaviors:NavigationPageActiveAwareBehavior/>
+            </NavigationPage.Behaviors>
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="ic_action_queue_music.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:HymnsPage/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Hymn Info">
+            <NavigationPage.Behaviors>
+                <behaviors:NavigationPageActiveAwareBehavior/>
+            </NavigationPage.Behaviors>
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="ic_action_subject.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:HymnDetailPage/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Play Hymns">
+            <NavigationPage.Behaviors>
+                <behaviors:NavigationPageActiveAwareBehavior/>
+            </NavigationPage.Behaviors>
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="ic_action_play_circle_outline.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:HymnPlayPage/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="About">
+            <NavigationPage.Behaviors>
+                <behaviors:NavigationPageActiveAwareBehavior/>
+            </NavigationPage.Behaviors>
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="ic_action_error_outline.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:AboutPage/>
+            </x:Arguments>
+        </NavigationPage>
+    </forms:BottomTabbedPage.Children>
 </forms:BottomTabbedPage>
-<!--<views:HymnsPage Icon="ic_action_queue_music.png"/>-->
-<!--<views:HymnDetailPage Icon="ic_action_subject.png"/>-->
-<!--<views:HymnPlayPage Icon="ic_action_play_circle_outline.png"/>-->
-<!--<views:AboutPage Icon="ic_action_error_outline.png"/>-->

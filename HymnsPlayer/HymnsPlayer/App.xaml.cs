@@ -21,7 +21,7 @@ namespace HymnsPlayer
 	    {
 	        InitializeComponent();
             //await NavigationService.NavigateAsync("NavigationPage/MainNavigation?createTab=HymnsPage&createTab=HymnDetailPage&createTab=HymnPlayPage&createTab=AboutPage");
-	        await NavigationService.NavigateAsync("NavigationPage/BottomNavigation");
+	        await NavigationService.NavigateAsync("MainNavigation");
         }
 
 	    protected override void RegisterTypes(IContainerRegistry containerRegistry)

@@ -8,7 +8,7 @@ namespace HymnsPlayer.Views
         public MainNavigation()
         {
             InitializeComponent();
-            //On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
+            On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
         }
     }
 }

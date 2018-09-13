@@ -1,5 +1,4 @@
 ﻿using Naxam.Controls.Forms;
-using Xamarin.Forms;
 
 namespace HymnsPlayer.Views
 {
@@ -8,7 +7,7 @@ namespace HymnsPlayer.Views
         public BottomNavigation()
         {
             InitializeComponent();
-
         }
+
     }
 }

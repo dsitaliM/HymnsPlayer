@@ -1,5 +1,7 @@
 ﻿using System;
 using HymnsPlayer.ViewModels;
+using Naxam.Controls.Forms;
+using Prism;
 using Xamarin.Forms;
 
 namespace HymnsPlayer.Views
@@ -12,6 +14,8 @@ namespace HymnsPlayer.Views
             //SearchBar.Effects.Add(Effect.Resolve("CustomEffects.SearchBarEffect"));
         }
 
+
+
         private void OnTextChanged(object sender, TextChangedEventArgs e)
         {
             var vm = BindingContext as HymnsPageViewModel;
@@ -20,13 +24,12 @@ namespace HymnsPlayer.Views
 
         private void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
-//            var aPage = new BottomNavigation();
-//            Navigation.PushAsync(aPage.);
-            //var page = new NavigationPage(new HymnDetailPage());
-            //Application.Current.MainPage.Navigation.PushAsync(page, true);
+            if (this.Parent is TabbedPage masterPage)
+                masterPage.CurrentPage = masterPage.Children[1];
 
             //Navigation.PushAsync(new HymnDetailPage());
             //HymnsListView.SelectedItem = null;
+            //Navigation.PushAsync(new NavigationPage(new HymnDetailPage()));
         }
 
         protected override void OnAppearing()
