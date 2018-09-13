@@ -13,13 +13,16 @@ namespace HymnsPlayer
 	{
         public App() : this(null) { }
 
-        public App(IPlatformInitializer initializer) : base(initializer) { }
+	    public App(IPlatformInitializer initializer) : base(initializer)
+	    {
+	    }
 
 	    protected override async void OnInitialized()
 	    {
 	        InitializeComponent();
+            //await NavigationService.NavigateAsync("NavigationPage/MainNavigation?createTab=HymnsPage&createTab=HymnDetailPage&createTab=HymnPlayPage&createTab=AboutPage");
 	        await NavigationService.NavigateAsync("NavigationPage/BottomNavigation");
-	    }
+        }
 
 	    protected override void RegisterTypes(IContainerRegistry containerRegistry)
 	    {
@@ -29,6 +32,7 @@ namespace HymnsPlayer
             containerRegistry.RegisterForNavigation<AboutPage>();
             containerRegistry.RegisterForNavigation<HymnDetailPage>();
             containerRegistry.RegisterForNavigation<HymnPlayPage>();
+            containerRegistry.RegisterForNavigation<MainNavigation>();
         }
 	}
 }

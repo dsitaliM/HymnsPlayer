@@ -8,11 +8,12 @@ using System.Runtime.CompilerServices;
 using HymnsPlayer.Models;
 using HymnsPlayer.Services;
 using MvvmHelpers;
+using Prism;
 using Prism.Navigation;
 
 namespace HymnsPlayer.ViewModels
 {
-	public class HymnsPageViewModel : BindableBase
+	public class HymnsPageViewModel : BindableBase, INavigationAware, IActiveAware
 	{
 	    private readonly INavigationService _navigationService;
 
@@ -42,7 +43,6 @@ namespace HymnsPlayer.ViewModels
 	        => _selectHymn ?? (_selectHymn = new DelegateCommand<Hymn>(ShowHymnDetails));
 
 
-	    private DelegateCommand _searchCommand;
 	    public DelegateCommand SearchCommand => new DelegateCommand(Search).ObservesProperty(() => SearchQuery);
 
 	    public void Search()
@@ -67,7 +67,6 @@ namespace HymnsPlayer.ViewModels
 	        {
 	            {"HymnNumber", hymnDto}
 	        };
-
 	        await _navigationService.NavigateAsync("HymnDetailPage", hymn);
 	    }
 
@@ -87,7 +86,6 @@ namespace HymnsPlayer.ViewModels
 
 	    public void OnNavigatedFrom(INavigationParameters parameters)
 	    {
-
 	    }
 
 	    public void OnNavigatedTo(INavigationParameters parameters)
@@ -98,6 +96,20 @@ namespace HymnsPlayer.ViewModels
 	    public void OnNavigatingTo(INavigationParameters parameters)
 	    {
 
+	    }
+
+	    private bool _isActive;
+	    public bool IsActive
+	    {
+	        get => _isActive;
+	        set => SetProperty(ref _isActive, value, RaiseIsActiveChanged);
+	    }
+
+	    public event EventHandler IsActiveChanged;
+
+	    protected virtual void RaiseIsActiveChanged()
+	    {
+            IsActiveChanged?.Invoke(this, EventArgs.Empty);
 	    }
 	}
 }

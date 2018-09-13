@@ -3,9 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:viewModels="clr-namespace:HymnsPlayer.ViewModels;assembly=HymnsPlayer"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="HymnsPlayer.Views.HymnsPage"
-             Title="Browse Hymns">
+             Title="Browse Hymns"
+             NavigationPage.HasNavigationBar="False"
+             Icon="ic_action_queue_music.png">
     <Grid HorizontalOptions="Fill"
           VerticalOptions="Fill">
         <Image HorizontalOptions="Fill"
@@ -34,6 +37,13 @@
                       Margin="8"
                       ItemsSource="{Binding Suggestions}"
                       SeparatorColor="Wheat">
+
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                                      Command="{Binding SelectHymnCommand}"
+                                                      EventArgsConverter="converters:ItemTappedEventArgsConverter"/>
+                </ListView.Behaviors>
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -56,3 +66,5 @@
         </StackLayout>
     </Grid>
 </ContentPage>
+
+

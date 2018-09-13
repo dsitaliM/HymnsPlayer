@@ -17,5 +17,20 @@ namespace HymnsPlayer.Views
             var vm = BindingContext as HymnsPageViewModel;
             vm?.SearchCommand.Execute();
         }
+
+        private void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+//            var aPage = new BottomNavigation();
+//            Navigation.PushAsync(aPage.);
+            //var page = new NavigationPage(new HymnDetailPage());
+            //Application.Current.MainPage.Navigation.PushAsync(page, true);
+
+            Navigation.PushAsync(new HymnDetailPage());
+        }
+
+        protected override void OnAppearing()
+        {
+            HymnsListView.SelectedItem = null;
+        }
     }
 }

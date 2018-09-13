@@ -4,6 +4,8 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="HymnsPlayer.Views.HymnDetailPage"
-             Title="Hymn Info">
+             Title="Hymn Info"
+             NavigationPage.HasNavigationBar="False"
+             Icon="ic_action_subject.png">
   
 </ContentPage>

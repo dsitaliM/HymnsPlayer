@@ -8,6 +8,7 @@ namespace HymnsPlayer.Views
         public BottomNavigation()
         {
             InitializeComponent();
+
         }
     }
 }
