@@ -68,7 +68,7 @@ namespace HymnsPlayer.ViewModels
 	            {"HymnNumber", hymnDto}
 	        };
 	        //await _navigationService.NavigateAsync("HymnDetailPage", hymn);
-	        await _navigationService.NavigateAsync("HymnDetailPage", hymn, useModalNavigation:false);
+	        await _navigationService.NavigateAsync("MainNavigation?selectedTab=HymnDetailPage", hymn, useModalNavigation:false);
         }
 
         public HymnsPageViewModel(INavigationService navigationService)

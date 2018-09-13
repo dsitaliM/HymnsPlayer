@@ -19,7 +19,6 @@ namespace HymnsPlayer.Droid.CustomRenderers
             if (Control != null)
             {
                 Control.Background = ContextCompat.GetDrawable(Context, Resource.Drawable.search_bar);
-                //Control.Background = new Color
             }
         }
     }

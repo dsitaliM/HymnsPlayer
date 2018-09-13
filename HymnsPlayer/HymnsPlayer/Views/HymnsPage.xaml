@@ -39,11 +39,11 @@
                       SeparatorColor="Wheat"
                       ItemTapped="OnItemTapped">
 
-<!--                <ListView.Behaviors>-->
-<!--                    <behaviors:EventToCommandBehavior EventName="ItemTapped"-->
-<!--                                                      Command="{Binding SelectHymnCommand}"-->
-<!--                                                      EventArgsConverter="converters:ItemTappedEventArgsConverter"/>-->
-<!--                </ListView.Behaviors>-->
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                                      Command="{Binding SelectHymnCommand}"
+                                                      EventArgsConverter="converters:ItemTappedEventArgsConverter"/>
+                </ListView.Behaviors>
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -67,6 +67,16 @@
         </StackLayout>
     </Grid>
 </ContentPage>
+
+
+
+
+
+
+
+
+
+
 
 
 
