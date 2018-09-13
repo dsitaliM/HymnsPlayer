@@ -25,12 +25,14 @@ namespace HymnsPlayer.Views
             //var page = new NavigationPage(new HymnDetailPage());
             //Application.Current.MainPage.Navigation.PushAsync(page, true);
 
-            Navigation.PushAsync(new HymnDetailPage());
+            //Navigation.PushAsync(new HymnDetailPage());
+            //HymnsListView.SelectedItem = null;
         }
 
         protected override void OnAppearing()
         {
             HymnsListView.SelectedItem = null;
+            InitializeComponent();
         }
     }
 }

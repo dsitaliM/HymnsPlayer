@@ -36,7 +36,8 @@
                       HasUnevenRows="True"
                       Margin="8"
                       ItemsSource="{Binding Suggestions}"
-                      SeparatorColor="Wheat">
+                      SeparatorColor="Wheat"
+                      ItemTapped="OnItemTapped">
 
                 <ListView.Behaviors>
                     <behaviors:EventToCommandBehavior EventName="ItemTapped"
@@ -66,5 +67,7 @@
         </StackLayout>
     </Grid>
 </ContentPage>
+
+
 
 

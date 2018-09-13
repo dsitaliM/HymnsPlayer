@@ -13,7 +13,7 @@ using Prism.Navigation;
 
 namespace HymnsPlayer.ViewModels
 {
-	public class HymnsPageViewModel : BindableBase, INavigationAware, IActiveAware
+	public class HymnsPageViewModel : BindableBase, INavigationAware
 	{
 	    private readonly INavigationService _navigationService;
 
@@ -96,20 +96,6 @@ namespace HymnsPlayer.ViewModels
 	    public void OnNavigatingTo(INavigationParameters parameters)
 	    {
 
-	    }
-
-	    private bool _isActive;
-	    public bool IsActive
-	    {
-	        get => _isActive;
-	        set => SetProperty(ref _isActive, value, RaiseIsActiveChanged);
-	    }
-
-	    public event EventHandler IsActiveChanged;
-
-	    protected virtual void RaiseIsActiveChanged()
-	    {
-            IsActiveChanged?.Invoke(this, EventArgs.Empty);
 	    }
 	}
 }
