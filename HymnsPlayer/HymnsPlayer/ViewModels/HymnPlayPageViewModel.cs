@@ -139,7 +139,7 @@ namespace HymnsPlayer.ViewModels
 	            Hymn = _hymns.Hymns.FirstOrDefault(hymn => hymn.HymnNumber == (int) parameters["HymnNumber"]);
 
 	        if (Hymn != null)
-	            _player.Load($"{Hymn.HymnNumber}.mid");
+	            _player.Load($"hymns/{Hymn.HymnNumber}.mid");
 	    }
 	}
 }
