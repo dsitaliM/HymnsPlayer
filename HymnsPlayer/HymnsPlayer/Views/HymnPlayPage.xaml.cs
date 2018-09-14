@@ -7,6 +7,7 @@ namespace HymnsPlayer.Views
         public HymnPlayPage()
         {
             InitializeComponent();
+            Slider.Effects.Add(Effect.Resolve("CustomEffects.CustomSliderEffect"));
         }
     }
 }

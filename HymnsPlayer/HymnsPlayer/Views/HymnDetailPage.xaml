@@ -76,8 +76,7 @@
                         BackgroundColor="Wheat"
                         Margin="5"
                         x:Name="PlayButton"
-                        Command="{Binding PlayCommand}"
-                        CommandParameter="{x:Reference PlayButton}"/>
+                        Command="{Binding PlayCommand}"/>
             </StackLayout>
         </Grid>
     </Grid>

@@ -11,31 +11,23 @@ namespace HymnsPlayer.ViewModels
 	{
 
 	    private readonly INavigationService _navigationService;
+	    private readonly HymnService _hymns;
 
-	    private Hymn _hymn;
+        private Hymn _hymn;
 	    public Hymn Hymn
 	    {
 	        get => _hymn;
 	        set => SetProperty(ref _hymn, value);
 	    }
 
-//	    private DelegateCommand<Hymn> _playCommand;
-//	    public DelegateCommand<Hymn> PlayCommand
-//            => _playCommand ?? (_playCommand = new DelegateCommand<Hymn>(OnPlayClicked));
+	    private DelegateCommand<Hymn> _playCommand;
+	    public DelegateCommand<Hymn> PlayCommand
+            => _playCommand ?? (_playCommand = new DelegateCommand<Hymn>(OnPlayClicked));
 
-	    private DelegateCommand _playCommand;
-	    public DelegateCommand PlayCommand
-	        => _playCommand ?? (_playCommand = new DelegateCommand(OnPlayClicked));
 
-//        private async void OnPlayClicked(Hymn hymn)
-//	    {
-//	        //var navParams = new NavigationParameters { { "HymnNymber", _hymn.HymnNumber } };
-//	        await _navigationService.NavigateAsync("MainNavigation?selectedTab=HymnPlayPage");
-//	    }
-
-	    private async void OnPlayClicked()
+        private async void OnPlayClicked(Hymn hymn)
 	    {
-	        //var navParams = new NavigationParameters { { "HymnNymber", _hymn.HymnNumber } };
+	        var navParams = new NavigationParameters { { "HymnNymber", _hymn.HymnNumber } };
 	        await _navigationService.NavigateAsync("MainNavigation?selectedTab=HymnPlayPage");
 	    }
 
@@ -43,7 +35,7 @@ namespace HymnsPlayer.ViewModels
         public HymnDetailPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-            //PlayCommand = new DelegateCommand(OnPlayClicked);
+            _hymns = new HymnService();
         }
 
 	    public void OnNavigatedFrom(INavigationParameters parameters)
@@ -53,21 +45,10 @@ namespace HymnsPlayer.ViewModels
 
 	    public void OnNavigatedTo(INavigationParameters parameters)
 	    {
-	        var hymns = new HymnService();
-            if (parameters.ContainsKey("HymnNumber"))
-	        {
-	            Hymn = hymns.Hymns.FirstOrDefault(hymn => hymn.HymnNumber == (int)parameters["HymnNumber"]);
-	        }
-            else
-            {
-                Hymn = hymns.Hymns.FirstOrDefault();
-            }
-        }
+	        Hymn = parameters.ContainsKey("HymnNumber") 
+	            ? _hymns.Hymns.FirstOrDefault(hymn => hymn.HymnNumber == (int)parameters["HymnNumber"]) 
+	            : _hymns.Hymns.FirstOrDefault();
+	    }
 
-	    
-        public void OnNavigatingTo(INavigationParameters parameters)
-	    {
-	        
-        }
 	}
 }

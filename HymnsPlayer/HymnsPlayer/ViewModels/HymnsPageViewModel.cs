@@ -90,10 +90,5 @@ namespace HymnsPlayer.ViewModels
 
         }
 
-	    public void OnNavigatingTo(INavigationParameters parameters)
-	    {
-            
-	    }
-
 	}
 }

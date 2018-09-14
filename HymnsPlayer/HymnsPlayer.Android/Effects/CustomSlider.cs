@@ -19,7 +19,7 @@ namespace HymnsPlayer.Droid.Effects
 
         protected override void OnDetached()
         {
-            throw new System.NotImplementedException();
+
         }
     }
 }
