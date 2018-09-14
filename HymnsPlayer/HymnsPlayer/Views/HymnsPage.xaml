@@ -6,7 +6,7 @@
              xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="HymnsPlayer.Views.HymnsPage"
-             Title="Browse"
+             Title="Hymns"
              NavigationPage.HasNavigationBar="False"
              Icon="ic_action_queue_music.png">
     <Grid HorizontalOptions="Fill"
@@ -36,13 +36,12 @@
                       HasUnevenRows="True"
                       Margin="8"
                       ItemsSource="{Binding Suggestions}"
-                      SeparatorColor="Wheat"
-                      ItemTapped="OnItemTapped">
+                      SeparatorColor="Wheat">
 
                 <ListView.Behaviors>
-                    <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                    <behaviors:EventToCommandBehavior EventName="ItemSelected"
                                                       Command="{Binding SelectHymnCommand}"
-                                                      EventArgsConverter="converters:ItemTappedEventArgsConverter"/>
+                                                      EventArgsParameterPath="SelectedItem"/>
                 </ListView.Behaviors>
 
                 <ListView.ItemTemplate>

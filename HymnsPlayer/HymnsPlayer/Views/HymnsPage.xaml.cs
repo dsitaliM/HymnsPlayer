@@ -2,11 +2,12 @@
 using HymnsPlayer.ViewModels;
 using Naxam.Controls.Forms;
 using Prism;
+using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace HymnsPlayer.Views
 {
-    public partial class HymnsPage : ContentPage
+    public partial class HymnsPage : ContentPage, IDestructible
     {
         public HymnsPage()
         {
@@ -36,6 +37,11 @@ namespace HymnsPlayer.Views
         {
             HymnsListView.SelectedItem = null;
             InitializeComponent();
+        }
+
+        public void Destroy()
+        {
+            HymnsListView.Behaviors.Clear();
         }
     }
 }
