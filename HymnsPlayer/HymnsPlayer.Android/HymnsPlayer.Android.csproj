@@ -281,5 +281,21 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\dove.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\hymns\1.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\hymns\2.mid" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\1.mid">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\2.mid">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

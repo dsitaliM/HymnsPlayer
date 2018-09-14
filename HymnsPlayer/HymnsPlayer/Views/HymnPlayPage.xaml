@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:local="clr-namespace:ButtonCircle.FormsPlugin.Abstractions;assembly=ButtonCircle.FormsPlugin.Abstractions"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="HymnsPlayer.Views.HymnPlayPage"
              Title="Play Hymn"
@@ -49,7 +50,8 @@
                                     WidthRequest="70"
                                     BorderThickness="1"
                                     BorderColor="#F9D351"
-                                    BackgroundColor="#FBD9AB"/>
+                                    BackgroundColor="#FBD9AB"
+                                    Command="{Binding PlayCommand}"/>
                 <local:CircleButton FontIcon="Material"
                                     FontSize="30"
                                     Icon="md-skip-next"
@@ -60,7 +62,18 @@
                                     BorderColor="#F9D351"
                                     BackgroundColor="#FBD9AB"/>
             </StackLayout>
-            <Slider x:Name="Slider"/>
+            <Slider x:Name="Slider">
+<!--                <Slider.Behaviors>-->
+<!--                    <behaviors:EventToCommandBehavior EventName="ValueChanged"-->
+<!--                                                      Command="{Binding SliderValueChangedCommand}"-->
+<!--                                                      CommandParameter="{Binding Value}"/> -->
+<!--                </Slider.Behaviors>-->
+                <Slider.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="ValueChanged"
+                                                      Command="{Binding SliderValueChangedCommand}"
+                                                      EventArgsParameterPath="Value"/>
+                </Slider.Behaviors>
+            </Slider>
         </StackLayout>
     </Grid>
 </ContentPage>

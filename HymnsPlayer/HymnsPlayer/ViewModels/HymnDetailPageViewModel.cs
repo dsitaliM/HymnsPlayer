@@ -27,8 +27,8 @@ namespace HymnsPlayer.ViewModels
 
         private async void OnPlayClicked(Hymn hymn)
 	    {
-	        var navParams = new NavigationParameters { { "HymnNymber", _hymn.HymnNumber } };
-	        await _navigationService.NavigateAsync("MainNavigation?selectedTab=HymnPlayPage");
+	        var navParams = new NavigationParameters { { "HymnNumber", Hymn.HymnNumber } };
+	        await _navigationService.NavigateAsync("MainNavigation?selectedTab=HymnPlayPage", navParams);
 	    }
 
         public HymnDetailPageViewModel() { }
