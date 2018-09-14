@@ -3,16 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:viewModels="clr-namespace:HymnsPlayer.ViewModels;assembly=HymnsPlayer"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="HymnsPlayer.Views.HymnDetailPage"
              Title="Hymn Info"
              NavigationPage.HasNavigationBar="False"
              Icon="ic_action_subject.png">
-    
-    <ContentPage.BindingContext>
-        <viewModels:HymnDetailPageViewModel/>
-    </ContentPage.BindingContext>
-
     <Grid HorizontalOptions="Fill"
           VerticalOptions="Fill">
         <Image HorizontalOptions="Fill"
@@ -32,7 +28,8 @@
                    Source="scroll.png"/>
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="Center"
-                         VerticalOptions="Center">
+                         VerticalOptions="Center"
+                         Margin="5">
                 <StackLayout Orientation="Horizontal">
                     <Label TextColor="#0B0706"
                            FontFamily="Tangerine-Regular.ttf#"
@@ -73,6 +70,14 @@
                            Text="{Binding Hymn.Key}"
                            FontSize="30"/>
                 </StackLayout>
+
+                <Button Text="Play"
+                        TextColor="#0B0706"
+                        BackgroundColor="Wheat"
+                        Margin="5"
+                        x:Name="PlayButton"
+                        Command="{Binding PlayCommand}"
+                        CommandParameter="{x:Reference PlayButton}"/>
             </StackLayout>
         </Grid>
     </Grid>
