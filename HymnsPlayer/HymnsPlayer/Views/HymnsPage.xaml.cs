@@ -19,23 +19,8 @@ namespace HymnsPlayer.Views
             var vm = BindingContext as HymnsPageViewModel;
             vm?.SearchCommand.Execute();
         }
-
-        private void OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
-
-//            Navigation.PushAsync(new HymnDetailPage());
-//
-//            if (this.Parent is TabbedPage masterPage)
-//                masterPage.CurrentPage = masterPage.Children[1];
-
-            //Navigation.PushAsync(new HymnDetailPage());
-            //HymnsListView.SelectedItem = null;
-            //Navigation.PushAsync(new NavigationPage(new HymnDetailPage()));
-        }
-
         protected override void OnAppearing()
         {
-            HymnsListView.SelectedItem = null;
             InitializeComponent();
         }
 

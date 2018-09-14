@@ -35,23 +35,14 @@ namespace HymnsPlayer.ViewModels
 	    {
 	        if (parameters.ContainsKey("HymnNumber"))
 	        {
-                var hymns = new HymnService();
-	            Hymn = hymns.Hymns.FirstOrDefault(hymn => hymn.HymnNumber == (int) parameters["HymnNumber"]);
+	            var hymns = new HymnService();
+	            Hymn = hymns.Hymns.FirstOrDefault(hymn => hymn.HymnNumber == (int)parameters["HymnNumber"]);
 	        }
         }
 
 	    public void OnNavigatingTo(INavigationParameters parameters)
 	    {
-            //	        HymnNumber = (int)parameters["HymnNumber"];
-            //	        Author = (string) parameters["Author"];
-            //	        Title = (string) parameters["Title"];
-            //	        Year = (string) parameters["Year"];
-	        //	        Key = (string) parameters["Key"];
-//	        if (parameters.ContainsKey("id"))
-//	        {
-//	            var hymns = new HymnService();
-//	            Hymn = hymns.Hymns.FirstOrDefault(hymn => hymn.HymnNumber == (int)parameters["id"]);
-//	        }
+	        
         }
 	}
 }

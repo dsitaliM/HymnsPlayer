@@ -13,7 +13,7 @@ using Prism.Navigation;
 
 namespace HymnsPlayer.ViewModels
 {
-	public class HymnsPageViewModel : BindableBase, INavigatedAware, IDestructible
+	public class HymnsPageViewModel : BindableBase, INavigatedAware
 	{
 	    private readonly INavigationService _navigationService;
 
@@ -42,9 +42,6 @@ namespace HymnsPlayer.ViewModels
 	    public DelegateCommand<Hymn> SelectHymnCommand
 	        => _selectHymn ?? (_selectHymn = new DelegateCommand<Hymn>(ShowHymnDetails));
 
-
-	    public DelegateCommand<Hymn> HymnSelectedCommand { get; set; }
-
 	    public DelegateCommand SearchCommand => new DelegateCommand(Search).ObservesProperty(() => SearchQuery);
 
 	    public void Search()
@@ -63,7 +60,8 @@ namespace HymnsPlayer.ViewModels
 	        }
 	    }
 
-	    private async void ShowHymnDetails(Hymn hymn)
+
+        private async void ShowHymnDetails(Hymn hymn)
 	    {
 	        var param = new NavigationParameters {{"HymnNumber", hymn.HymnNumber}};
 	        await _navigationService.NavigateAsync("MainNavigation?selectedTab=HymnDetailPage", param);
@@ -81,8 +79,8 @@ namespace HymnsPlayer.ViewModels
             Suggestions.AddRange(hymnRepo.Hymns);
             Hymns.AddRange(hymnRepo.Hymns);
 
-        }
 
+        }
 	    public void OnNavigatedFrom(INavigationParameters parameters)
 	    {
 	    }
@@ -90,16 +88,12 @@ namespace HymnsPlayer.ViewModels
 	    public void OnNavigatedTo(INavigationParameters parameters)
 	    {
 
-	    }
+        }
 
 	    public void OnNavigatingTo(INavigationParameters parameters)
 	    {
-
+            
 	    }
 
-	    public void Destroy()
-	    {
-
-	    }
 	}
 }
