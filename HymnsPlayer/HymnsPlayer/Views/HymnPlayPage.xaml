@@ -62,7 +62,9 @@
                                     BorderColor="#F9D351"
                                     BackgroundColor="#FBD9AB"/>
             </StackLayout>
-            <Slider x:Name="Slider">
+            <Slider x:Name="Slider"
+                    Value="{Binding SliderValue}"
+                    Maximum="{Binding SliderMaximum}">
 <!--                <Slider.Behaviors>-->
 <!--                    <behaviors:EventToCommandBehavior EventName="ValueChanged"-->
 <!--                                                      Command="{Binding SliderValueChangedCommand}"-->

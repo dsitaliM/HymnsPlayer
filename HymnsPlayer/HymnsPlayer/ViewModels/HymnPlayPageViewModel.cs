@@ -44,11 +44,11 @@ namespace HymnsPlayer.ViewModels
 	        set => SetProperty(ref _hymnNumber, value);
 	    }
 
-	    private double _sliderMax;
-	    public double SliderMax
+	    private double _sliderValue;
+	    public double SliderValue
 	    {
-	        get => _sliderMax;
-	        set => SetProperty(ref _sliderMax, value);
+	        get => _sliderValue;
+	        set => SetProperty(ref _sliderValue, value);
 	    }
 
 	    private bool _sliderEnabled;
@@ -58,12 +58,18 @@ namespace HymnsPlayer.ViewModels
 	        set => SetProperty(ref _sliderEnabled, value);
 	    }
 
-	    private double _sliderValue;
-	    public double SliderValue
-	    {
-	        get => _sliderValue;
-	        set => SetProperty(ref _sliderValue, value);
-	    }
+	    //private double _sliderValue;
+
+	    public double SliderMaximum => _player.Duration;
+//        public double SliderMax
+//	    {
+//	        get => Maximum;
+//	        set
+//	        {
+//	            var maximum = Maximum;
+//	            SetProperty(ref maximum, value);
+//	        }
+//	    }
 
 //	    private DelegateCommand<double> _sliderValueChangedCommand;
 //	    public DelegateCommand<double> SliderValueChangedCommand
@@ -89,7 +95,7 @@ namespace HymnsPlayer.ViewModels
 	        {
 	            Icon = "md-pause";
 	            _player.Play();
-	            SliderMax = _player.Duration;
+	            //SliderMaximum = _player.Duration;
 	            SliderEnabled = _player.CanSeek;
 	            Device.StartTimer(TimeSpan.FromSeconds(0.5), UpdateSliderPosition);
 	            _player.Loop = true;
@@ -140,6 +146,6 @@ namespace HymnsPlayer.ViewModels
 
 	        if (Hymn != null)
 	            _player.Load($"hymns/{Hymn.HymnNumber}.mid");
-	    }
+        }
 	}
 }
